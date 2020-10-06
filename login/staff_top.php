@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<?php 
+
+    session_start();
+    session_regenerate_id(true);
+    if(isset($_SESSION['login'])==false) {
+        echo 'ログインできません';
+        echo '<a href="../login/staff_login.html">ログイン画面へ</a>';
+        exit();
+    }else {
+
+        echo $_SESSION['staff_name'];
+        echo 'さんログイン中 <br />';
+        echo '<br />';
+    }
+
+ ?>
+
+ショップ管理トップメニュー <br />
+<br />
+<a href="../staff/staff_list.php">スタッフ管理</a><br />
+
+<a href="../product/pro_list.php">商品管理</a><br />
+<br />
+<a href="staff_logout.php">ログアウト</a><br />
+
+<form method="post" action="../product/pro_add_check.php" enctype="multipart/form-data">
+
+商品名を入力してください。<br/>
+<input type="text" name="name" style="width:200px"> <br />
+価格を入力してください。<br />
+<input type="text" name="price" style="width:50px"> <br />
+画像を選んでください。<br />
+<input type="file" name="image" style="width:400px"><br />
+<br />
+<input type="button" onclick="history.back()" value="戻る" >
+<input type="submit" value="OK">
+
+</form>
+    
+</body>
+</html>
