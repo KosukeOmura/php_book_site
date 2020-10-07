@@ -10,7 +10,7 @@
 
 
 
-
+$post =sanitaize($_POST);
 $staff_name=$_POST['name'];
 $staff_pass=$_POST['password'];
 $staff_pass2=$_POST['pass2'];
